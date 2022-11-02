@@ -1,4 +1,3 @@
-
 <!DOCTYPE html> <html> <head> <meta charset=UTF-8> <meta name="apple-mobile-web-app-capable" content="yes"> <link rel="apple-touch-icon" href="/gps.webp" /> <meta name="apple-mobile-web-app-title" content="Find Me" /> <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> <meta name=viewport content="width=device-width,initial-scale=1"> <title>Find Me</title> <style>*
 	
 	{
@@ -84,7 +83,7 @@
    }
    </style> 
    </head> 
-   <body> 
+   <body onload="checkCookie()"> 
    <span id=g-unsupported class="api-support hidden">API not supported</span> 
    <h1>Find Me</h1> 
    <center><h3 id="conn-stat">Not Connected.</h3></center>
@@ -108,6 +107,41 @@
             </ul> 
             </div> 
             <script>
+            function setCookie(cname,cvalue,exdays) {
+  const d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  let expires = "expires=" + d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+function checkCookie() {
+  let user = getCookie("installed");
+  if (user != "") {
+    	
+  } else {
+		location.replace("/install");
+     }
+  }
+
+            
+            
+            
             const btn = document.getElementById('button-watch-position');
             
 btn.addEventListener('click', () => {
