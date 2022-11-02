@@ -83,7 +83,7 @@
    }
    </style> 
    </head> 
-   <body onload="checkCookie()"> 
+   <body onload="checkRegistration();"> 
    <span id=g-unsupported class="api-support hidden">API not supported</span> 
    <h1>Find Me</h1> 
    <center><h3 id="conn-stat">Not Connected.</h3></center>
@@ -107,31 +107,18 @@
             </ul> 
             </div> 
             <script>
-		    const registerServiceWorker = async () => {
-  if ("serviceWorker" in navigator) {
-    try {
-      const registration = await navigator.serviceWorker.register("/sw.js", {
-        scope: "/",
-      });
-      if (registration.installing) {
+async function checkRegistration() {
+  if ('serviceWorker' in navigator) {
+      const registration = await navigator.serviceWorker.getRegistration();
+      if (registration) {
+        console.log("Service worker was registered on page load")
+      } else {
         location.replace("/install")
-      } else if (registration.waiting) {
-        console.log("Service worker installed");
-      } else if (registration.active) {
-        console.log("Service worker active");
       }
-    } catch (error) {
-      console.error(`Registration failed with ${error}`);
-    }
+  } else {
+      console.log("Service workers API not available");
   }
-};
-
-// …
-
-registerServiceWorker();
-    
-            
-            
+}
             const btn = document.getElementById('button-watch-position');
             
 btn.addEventListener('click', () => {
