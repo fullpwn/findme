@@ -60,7 +60,6 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('install', (event) => {
   event.waitUntil(
     addResourcesToCache([
-      '/',
       '/home',
       '/install',
 
