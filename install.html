@@ -94,7 +94,7 @@
         console.log("Service worker installing");
 	document.getElementById("status").innerHTML = "Installing Find Me..  "
       } else if (registration.waiting) {
-        document.getElementById("status").innerHTML = "Find Me is installed. Please relaunch."
+        document.getElementById("status").innerHTML = "Find Me is Installed."
       } else if (registration.active) {
         document.getElementById("status").innerHTML = "Find Me is Installed."
       }
@@ -115,6 +115,6 @@ setInterval(registerServiceWorker, 1000)
 </head>
 
 <h1>Install</h1>
-	<center><h2 id="status"></h2></center>
+	<center><h3 id="status"></h3></center>
 
 </html>

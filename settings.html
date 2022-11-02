@@ -64,6 +64,12 @@
   color: black;
   text-decoration: none;
 }
+.menulist {
+  text-align: center;
+  font-size: 15px;
+  color: black;
+  text-decoration: none;
+}
 @media (prefers-color-scheme: dark) {
    body {
      background-color: #18181b;
@@ -74,6 +80,9 @@
    }
    .settingsmenu {
    color: white;
+   }
+   .menulist {
+    color: white;
    }
 }
 
@@ -125,6 +134,7 @@ setInterval(registerServiceWorker, 1000)
 </head>
 
 <h1>Settings</h1>
-<center><h2>Not Ready.</h2></center>
-<a class="settingsmenu" href="/home">Back</a>
+<center><h3>Not Ready.</h3></center>
+<a class="menulist" href="/uninstall">Uninstall</a>
+<p class="settingsmenu">Swipe left to go back.</p>
 </html>

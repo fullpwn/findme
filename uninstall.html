@@ -83,13 +83,17 @@
    }
    </style> 
 <script>
+
+navigator.serviceWorker.getRegistrations().then( function(registrations) { for(let registration of registrations) { registration.unregister().then(document.getElementById("status").innerHTML = "Uninstalled."); } }); 
+
+// …
      
 	
 	
 </script>
 </head>
 
-<h1>Find Me</h1>
-	<center><h3>Please add Find Me to your Home Screen to get started.</h3></center>
+<h1>Uninstall</h1>
+	<center><h3 id="status">Uninstalling..</h3></center>
 
 </html>
