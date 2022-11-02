@@ -56,7 +56,14 @@
   right: 45px;
   font-size: 12px;
 }
-
+.settingsmenu {
+  position: absolute;
+  bottom: 25px;
+  left: 20px;
+  font-size: 15px;
+  color: black;
+  text-decoration: none;
+}
 @media (prefers-color-scheme: dark) {
    body {
      background-color: #18181b;
@@ -64,6 +71,9 @@
    }
    svg path {
       fill:white
+   }
+   .settingsmenu {
+   color: white;
    }
 }
 
@@ -115,6 +125,6 @@ setInterval(registerServiceWorker, 1000)
 </head>
 
 <h1>Settings</h1>
-<center><h2>Not Ready. Please relaunch the app.</h2></center>
-
+<center><h2>Not Ready.</h2></center>
+<a class="settingsmenu" href="/home">Back</a>
 </html>

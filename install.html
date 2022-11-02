@@ -94,7 +94,7 @@
         console.log("Service worker installing");
 	document.getElementById("status").innerHTML = "Installing Find Me..  "
       } else if (registration.waiting) {
-        document.getElementById("status").innerHTML = "Find Me is installed."
+        document.getElementById("status").innerHTML = "Find Me is installed. Please relaunch."
       } else if (registration.active) {
         document.getElementById("status").innerHTML = "Find Me is Installed."
       }
