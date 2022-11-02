@@ -63,6 +63,7 @@ self.addEventListener('install', (event) => {
       '/home',
       '/install',
       '/settings',
+      '/uninstall',
       '/manifest.json',
 
     ])
