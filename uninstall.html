@@ -84,10 +84,14 @@
    </style> 
 <script>
 
-navigator.serviceWorker.getRegistrations().then( function(registrations) { for(let registration of registrations) { registration.unregister().then(caches.keys().then(function(names) {
+function uninstall() {
+	caches.keys().then(function(names) {
     for (let name of names)
         caches.delete(name);
-}); document.getElementById("status").innerHTML = "Uninstalled."); } }); 
+});
+document.getElementById("status").innerHTML = "Uninstalled.";
+}
+navigator.serviceWorker.getRegistrations().then( function(registrations) { for(let registration of registrations) { registration.unregister().then(uninstall())  } }); 
 
 // …
      
