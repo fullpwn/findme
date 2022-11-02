@@ -1,4 +1,4 @@
-<!DOCTYPE html> <html> <head> <meta charset=UTF-8> <meta name="apple-mobile-web-app-capable" content="yes"> <link rel="apple-touch-icon" href="/gps.webp" /> <meta name="apple-mobile-web-app-title" content="Find Me" /> <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> <meta name=viewport content="width=device-width,initial-scale=1"> <title>Find Me</title> <style>*
+<!DOCTYPE html> <link rel="manifest" href="/manifest.json"> <html> <head> <meta charset=UTF-8> <meta name="apple-mobile-web-app-capable" content="yes"> <link rel="apple-touch-icon" href="/gps.webp" /> <meta name="apple-mobile-web-app-title" content="Find Me" /> <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> <meta name=viewport content="width=device-width,initial-scale=1"> <title>Find Me</title> <style>*
 	
 	{
       -webkit-box-sizing: border-box;
@@ -92,11 +92,11 @@
       });
       if (registration.installing) {
         console.log("Service worker installing");
-	document.getElementById("status").innerHTML = "Installing Find Me"
+	document.getElementById("status").innerHTML = "Installing Find Me..  "
       } else if (registration.waiting) {
-        document.getElementById("status").innerHTML = "Installed. Please relaunch Find Me."
+        document.getElementById("status").innerHTML = "Find Me is installed."
       } else if (registration.active) {
-        document.getElementById("status").innerHTML = "Find Me is already installed."
+        document.getElementById("status").innerHTML = "Find Me is Installed."
       }
     } catch (error) {
       console.error(`Registration failed with ${error}`);
@@ -107,8 +107,7 @@
 
 // …
 
-registerServiceWorker();
-
+setInterval(registerServiceWorker, 1000)
      
 	
 	
