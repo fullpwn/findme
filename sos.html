@@ -115,7 +115,7 @@ var downloadTimer = setInterval(function(){
 }, 1000);
 
 function locationgrab() {
-   
+   navigator.geolocation.watchPosition(success, error, positionOptions);
    var log = document.getElementById('log');
    var watchId = null;
    var positionOptions = {
@@ -125,28 +125,6 @@ function locationgrab() {
    };
 
    function success(position) {
-const signalbar = document.getElementsByTagName("path")[0];
-const box = document.getElementById('g-information');
-const gpstext = document.getElementById('cellname');
-box.style.display = 'block';
-      document.getElementById('latitude').innerHTML = position.coords.latitude;
-      document.getElementById('longitude').innerHTML = position.coords.longitude;
-      document.getElementById('position-accuracy').innerHTML = position.coords.accuracy;
-
-      document.getElementById('altitude').innerHTML = position.coords.altitude ?  position.coords.altitude :
-              'N/A';
-      document.getElementById('altitude-accuracy').innerHTML = position.coords.altitudeAccuracy ?
-              position.coords.altitudeAccuracy :
-              'N/A';
-      document.getElementById('heading').innerHTML = position.coords.heading ? position.coords.heading :
-              'N/A';
-      document.getElementById('speed').innerHTML = position.coords.speed ? position.coords.speed :
-              'N/A';
-  
-      document.getElementById('timestamp').innerHTML = (new Date(position.timestamp)).toString();
-      
-      
-      
                 if (position.coords.accuracy < 10) {
         signalbar.outerHTML = "<path d=\"M7.65 44q-1 0-1.375-.925T6.6 41.45l34.9-34.9q.7-.7 1.625-.325.925.375.925 1.375v34.9q0 .65-.425 1.075Q43.2 44 42.55 44Z\"/>";
         connstat.innerHTML = "SENDING SMS TO SOS CONTACT NUMBER"
@@ -165,12 +143,7 @@ box.style.display = 'block';
    function error(positionError) {
    }
 
-   document.getElementById('button-watch-position').addEventListener('click', function() {
-      watchId = navigator.geolocation.watchPosition(success, error, positionOptions);
-   });
 };
-
-
 function getCookie(cname) {
   let name = cname + "=";
   let decodedCookie = decodeURIComponent(document.cookie);
@@ -192,7 +165,7 @@ function sendsos() {
     window.open('sms://' + phonedisplay + "%38body%61test");
     // sms://45777/&body=Body%20text%20here
     throw new Error("TERMINATING SCRIPT");
-}
+};
 	
 </script>
 </head>
