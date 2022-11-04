@@ -95,8 +95,10 @@
 	document.getElementById("status").innerHTML = "Installing Find Me..  "
       } else if (registration.waiting) {
         document.getElementById("status").innerHTML = "Find Me is Installed."
+        location.replace("/setup")
       } else if (registration.active) {
         document.getElementById("status").innerHTML = "Find Me is Installed."
+        location.replace("/setup")
       }
     } catch (error) {
       console.error(`Registration failed with ${error}`);

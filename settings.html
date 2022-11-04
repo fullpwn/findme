@@ -102,31 +102,6 @@
    }
    </style> 
 <script>
-
-		const registerServiceWorker = async () => {
-  if ("serviceWorker" in navigator) {
-    try {
-      const registration = await navigator.serviceWorker.register("/sw.js", {
-        scope: "/",
-      });
-      if (registration.installing) {
-        console.log("Service worker installing");
-	document.getElementById("status").innerHTML = "Installing Find Me..  "
-      } else if (registration.waiting) {
-        document.getElementById("status").innerHTML = "Find Me is installed."
-      } else if (registration.active) {
-        document.getElementById("status").innerHTML = "Find Me is Installed."
-      }
-    } catch (error) {
-      console.error(`Registration failed with ${error}`);
-      document.getElementById("status").innerHTML = "Error installing Find Me."
-    }
-  }
-};
-
-// …
-
-setInterval(registerServiceWorker, 1000)
      
 	
 	
@@ -135,6 +110,7 @@ setInterval(registerServiceWorker, 1000)
 
 <h1>Settings</h1>
 <center><h3>Menu</h3></center>
+<center><a class="menulist" href="/sossettings.html">SOS Settings</a></center>
 <center><a class="menulist" href="/uninstall">Uninstall</a></center>
 <p class="settingsmenu">Swipe left to go back.</p>
 </html>
