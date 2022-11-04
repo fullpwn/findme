@@ -130,14 +130,14 @@ function locationgrab() {
         connstat.innerHTML = "SENDING SMS TO SOS CONTACT NUMBER"
         sendsos();
      } else if (position.coords.accuracy < 20) {
-        connstat.innerHTML = "POINT YOUR PHONE TO THE SKY (20+)";
+        connstat.innerHTML = "POINT YOUR PHONE TO THE SKY (20+)" + position.coords.accuracy;
      } else if (position.coords.accuracy < 30) {
-        connstat.innerHTML = "POINT YOUR PHONE TO THE SKY (30+)";
+        connstat.innerHTML = "POINT YOUR PHONE TO THE SKY (30+)" + position.coords.accuracy;
      } else if (position.coords.accuracy < 40) {
-        connstat.innerHTML = "POINT YOUR PHONE TO THE SKY (40+)";
+        connstat.innerHTML = "POINT YOUR PHONE TO THE SKY (40+)" + position.coords.accuracy;
      } else {
     
-         connstat.innerHTML = "POINT YOUR PHONE TO THE SKY (50+)";
+         connstat.innerHTML = "POINT YOUR PHONE TO THE SKY (50+)" + position.coords.accuracy;
      }
    };
    function error(positionError) {
@@ -172,5 +172,5 @@ function sendsos() {
 
 <h1>SOS</h1>
 <center><h3 id="connstat">COUNTING DOWN.</h3></center>
-<p class="settingsmenu" onclick="location.replace('/home')">Tap me to go back. (Will be removed)</p>
+<p class="settingsmenu" onclick="location.replace('/home')">Tap me to go back. (TESTING)</p>
 </html>
