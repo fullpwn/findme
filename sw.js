@@ -66,7 +66,9 @@ self.addEventListener('install', (event) => {
       '/uninstall',
       '/manifest.json',
       '/setup',
-      '/sossettings.html'
+      '/sossettings',
+      '/sos',
+      '/styles.css',
 
     ])
   );

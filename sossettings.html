@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> <link rel="manifest" href="/manifest.json"> <html> <head> <meta charset=UTF-8> <meta name="apple-mobile-web-app-capable" content="yes"> <link rel="apple-touch-icon" href="/gps.webp" /> <meta name="apple-mobile-web-app-title" content="Find Me" /> <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> <meta name=viewport content="width=device-width,initial-scale=1">
 <html>
 <head>
     <style>*
@@ -61,14 +61,20 @@
     }
     
     @media (prefers-color-scheme: dark) {
-       body {
-         background-color: #18181b;
-         color: white;
-       }
-       svg path {
-          fill:white
-       }
-    }
+   body {
+     background-color: #18181b;
+     color: white;
+   }
+   svg path {
+      fill:white
+   }
+   .settingsmenu {
+   color: white;
+   }
+   .menulist {
+    color: white;
+   }
+}
     
        #log
        {
@@ -84,6 +90,14 @@
           display: block;
           margin-top: 1em;
        }
+       .settingsmenu {
+  position: absolute;
+  bottom: 25px;
+  left: 20px;
+  font-size: 15px;
+  color: black;
+  text-decoration: none;
+}
        </style> 
 <script>
 function setCookie(cname,cvalue,exdays) {
@@ -113,14 +127,14 @@ function sossettings() {
     var phonedisplay = getCookie('sosphone')
     document.getElementById('sosphone-display').innerHTML = phonedisplay
 }
-
 </script>
 </head>
 <body onload="sossettings();">
 	<center>
-<h1>SOS Settings</h1>
+<h1>SOS</h1>
 <h3>Not implemented yet. A placeholder number has been added.</h3>
 <p id="sosphone-display"></p>
+<p class="settingsmenu">Swipe left to go back.</p>
 </center>
 
 </body>

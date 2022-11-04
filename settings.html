@@ -1,106 +1,5 @@
-<!DOCTYPE html> <link rel="manifest" href="/manifest.json"> <html> <head> <meta charset=UTF-8> <meta name="apple-mobile-web-app-capable" content="yes"> <link rel="apple-touch-icon" href="/gps.webp" /> <meta name="apple-mobile-web-app-title" content="Find Me" /> <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> <meta name=viewport content="width=device-width,initial-scale=1"> <title>Find Me</title> <style>*
-	
-	{
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
-   }
-
-   body
-   {
-      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-      max-width: 500px;
-      margin: 2em auto;
-      padding: 0 0.5em;
-      font-size: 20px;
-   }
-
-   h1
-   {
-      text-align: center;
-   }
-
-   .api-support
-   {
-      display: block;
-   }
-
-   .hidden
-   {
-      display: none;
-   }
-
-   .buttons-wrapper
-   {
-      text-align: center;
-   }
-
-   .button-demo
-   {
-      padding: 0.5em;
-      margin: 1em auto;
-   }
-
-   .g-info
-   {
-      font-weight: bold;
-   }
-   .cell {
-  position: absolute;
-  top: 8px;
-  right: 16px;
-}
-   .celltext {
-  position: absolute;
-  top: 0px;
-  right: 45px;
-  font-size: 12px;
-}
-.settingsmenu {
-  position: absolute;
-  bottom: 25px;
-  left: 20px;
-  font-size: 15px;
-  color: black;
-  text-decoration: none;
-}
-.menulist {
-  text-align: center;
-  font-size: 15px;
-  color: black;
-  text-decoration: none;
-}
-@media (prefers-color-scheme: dark) {
-   body {
-     background-color: #18181b;
-     color: white;
-   }
-   svg path {
-      fill:white
-   }
-   .settingsmenu {
-   color: white;
-   }
-   .menulist {
-    color: white;
-   }
-}
-
-   #log
-   {
-      height: 200px;
-      width: 100%;
-      overflow-y: scroll;
-      border: 1px solid #333333;
-      line-height: 1.3em;
-   }
-
-   .author
-   {
-      display: block;
-      margin-top: 1em;
-   }
-   </style> 
+<!DOCTYPE html> <link rel="manifest" href="/manifest.json"> <html> <head> <meta charset=UTF-8> <meta name="apple-mobile-web-app-capable" content="yes"> <link rel="apple-touch-icon" href="/gps.webp" /> <meta name="apple-mobile-web-app-title" content="Find Me" /> <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> <meta name=viewport content="width=device-width,initial-scale=1"> <title>Find Me</title> 
+   <link rel="stylesheet" href="/styles.css"/>
 <script>
      
 	
@@ -110,7 +9,8 @@
 
 <h1>Settings</h1>
 <center><h3>Menu</h3></center>
-<center><a class="menulist" href="/sossettings.html">SOS Settings</a></center>
+<center><a class="menulist" href="/sossettings.html">SOS</a></center>
 <center><a class="menulist" href="/uninstall">Uninstall</a></center>
 <p class="settingsmenu">Swipe left to go back.</p>
+<p class="ver">v1.01</p>
 </html>
