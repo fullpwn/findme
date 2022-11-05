@@ -126,14 +126,29 @@ function locationgrab() {
 
    function success(position) {
                 if (position.coords.accuracy < 10) {
-        sendsos();
+      var phonedisplay = getCookie('sosphone')
+    document.getElementById("connstat").innerHTML = "SENDING SMS TO CONTACT NUMBER";
+    var links = 'sms://' + phonedisplay + "&body=SOS! \n\n Latitude: " + position.coords.latitude + "Longitude: " + position.coords.longitude
+    document.getElementById("linkout").innerHTML = links
+    window.open(links, "_self");
         throw new Error("TERMINATING SCRIPT");
+
      } else if (position.coords.accuracy < 20) {
-      sendsos();
+      var phonedisplay = getCookie('sosphone')
+    document.getElementById("connstat").innerHTML = "SENDING SMS TO CONTACT NUMBER";
+    var links = 'sms://' + phonedisplay + "&body=SOS! \n\n Latitude: " + position.coords.latitude + "Longitude: " + position.coords.longitude
+    document.getElementById("linkout").innerHTML = links
+    window.open(links, "_self");
       throw new Error("TERMINATING SCRIPT");
+
      } else if (position.coords.accuracy < 30) {
-      sendsos();
+      var phonedisplay = getCookie('sosphone')
+    document.getElementById("connstat").innerHTML = "SENDING SMS TO CONTACT NUMBER";
+    var links = 'sms://' + phonedisplay + "&body=SOS! \n\n Latitude: " + position.coords.latitude + "Longitude: " + position.coords.longitude
+    document.getElementById("linkout").innerHTML = links
+    window.open(links, "_self");
       throw new Error("TERMINATING SCRIPT");
+
      } else if (position.coords.accuracy < 40) {
         connstat.innerHTML = "POINT YOUR PHONE TO THE SKY (30+) " + position.coords.accuracy;
      } else {
@@ -162,7 +177,7 @@ function getCookie(cname) {
   return "";
 }
 
-function sendsos() {
+function sendsos(position) {
     var phonedisplay = getCookie('sosphone')
     document.getElementById("connstat").innerHTML = "SENDING SMS TO CONTACT NUMBER";
     var links = 'sms://' + phonedisplay + "&body=SOS! \n\n Latitude: " + position.coords.latitude + "Longitude: " + position.coords.longitude
