@@ -126,29 +126,14 @@ function locationgrab() {
 
    function success(position) {
                 if (position.coords.accuracy < 10) {
-      var phonedisplay = getCookie('sosphone')
-    document.getElementById("connstat").innerHTML = "SENDING SMS TO CONTACT NUMBER";
-    var links = 'sms://' + phonedisplay + "&body=SOS! \n\n Latitude: " + position.coords.latitude + "Longitude: " + position.coords.longitude
-    document.getElementById("linkout").innerHTML = links
-    window.open(links, "_self");
+        sendsos();
         throw new Error("TERMINATING SCRIPT");
-
      } else if (position.coords.accuracy < 20) {
-      var phonedisplay = getCookie('sosphone')
-    document.getElementById("connstat").innerHTML = "SENDING SMS TO CONTACT NUMBER";
-    var links = 'sms://' + phonedisplay + "&body=SOS! \n\n Latitude:"
-    document.getElementById("linkout").innerHTML = links
-    window.open(links, "_self");
+      sendsos();
       throw new Error("TERMINATING SCRIPT");
-
      } else if (position.coords.accuracy < 30) {
-      var phonedisplay = getCookie('sosphone')
-    document.getElementById("connstat").innerHTML = "SENDING SMS TO CONTACT NUMBER";
-    var links = 'sms://' + phonedisplay + "&body=SOS! \n\n Latitude: " + position.coords.latitude + "Longitude: " + position.coords.longitude
-    document.getElementById("linkout").innerHTML = links
-    window.open(links, "_self");
+      sendsos();
       throw new Error("TERMINATING SCRIPT");
-
      } else if (position.coords.accuracy < 40) {
         connstat.innerHTML = "POINT YOUR PHONE TO THE SKY (30+) " + position.coords.accuracy;
      } else {
@@ -177,15 +162,13 @@ function getCookie(cname) {
   return "";
 }
 
-function sendsos(position) {
+function sendsos() {
     var phonedisplay = getCookie('sosphone')
     document.getElementById("connstat").innerHTML = "SENDING SMS TO CONTACT NUMBER";
-    var links = 'sms://' + phonedisplay + "&body=SOS! \n\n Latitude: " + position.coords.latitude + "Longitude: " + position.coords.longitude
+    var links = 'sms://' + phonedisplay + "&body=SOS! \n\n Test"
     document.getElementById("linkout").innerHTML = links
     window.open(links, "_self");
-    
 };
-	
 </script>
 </head>
 
