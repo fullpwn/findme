@@ -127,13 +127,10 @@ function locationgrab() {
    function success(position) {
                 if (position.coords.accuracy < 10) {
         sendsos();
-        throw new Error("TERMINATING SCRIPT");
      } else if (position.coords.accuracy < 20) {
       sendsos();
-      throw new Error("TERMINATING SCRIPT");
      } else if (position.coords.accuracy < 30) {
       sendsos();
-      throw new Error("TERMINATING SCRIPT");
      } else if (position.coords.accuracy < 40) {
         connstat.innerHTML = "POINT YOUR PHONE TO THE SKY (30+) " + position.coords.accuracy;
      } else {
