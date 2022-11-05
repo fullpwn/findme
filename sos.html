@@ -162,8 +162,9 @@ function getCookie(cname) {
 
 function sendsos() {
     var phonedisplay = getCookie('sosphone')
-    connstat.innerHTML = "SENDING SMS TO SOS CONTACT NUMBER"
-    window.location = 'sms://' + phonedisplay + "&body=test"
+    document.getElementById("connstat").innerHTML = "SENDING SMS TO CONTACT NUMBER";
+    var links = 'sms://' + phonedisplay + "&body=test"
+    document.getElementById("linkout").innerHTML = links
     throw new Error("TERMINATING SCRIPT");
 };
 	
@@ -172,5 +173,7 @@ function sendsos() {
 
 <h1>SOS</h1>
 <center><h3 id="connstat">COUNTING DOWN.</h3></center>
+
+<p id="linkout"></p>
 <p class="settingsmenu" onclick="location.replace('/home')">Tap me to go back. (TESTING)</p>
 </html>
