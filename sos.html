@@ -167,7 +167,6 @@ function sendsos() {
     var phonedisplay = getCookie('sosphone')
     document.getElementById("connstat").innerHTML = "SENDING SMS TO CONTACT NUMBER";
     var links = 'sms://' + phonedisplay + "&body=SOS%21%0A%0AAcccuracy%3A" + global
-    document.getElementById("linkout").innerHTML = links
     window.open(links, "_self");
 };
 </script>
