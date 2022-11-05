@@ -129,7 +129,7 @@ function locationgrab() {
         sendsos();
         throw new Error("TERMINATING SCRIPT");
      } else if (position.coords.accuracy < 20) {
-      gsd
+      sendsos();
       throw new Error("TERMINATING SCRIPT");
      } else if (position.coords.accuracy < 30) {
       sendsos();
@@ -166,7 +166,7 @@ function getCookie(cname) {
 function sendsos() {
     var phonedisplay = getCookie('sosphone')
     document.getElementById("connstat").innerHTML = "SENDING SMS TO CONTACT NUMBER";
-    var links = 'sms://' + phonedisplay + "&body=SOS%21%0A%0AAcccuracy%3A" + global + "%0A%0A%0A%0A%28This%20is%20a%20test%2E%29"
+    var links = 'sms://' + phonedisplay + "&body=SOS%21%0A%0AAcccuracy%3A" + "%0A%0A%0A%0A%28This%20is%20a%20test%2E%29"
     window.open(links, "_self");
 };
 </script>
