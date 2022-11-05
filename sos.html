@@ -136,7 +136,7 @@ function locationgrab() {
      } else if (position.coords.accuracy < 20) {
       var phonedisplay = getCookie('sosphone')
     document.getElementById("connstat").innerHTML = "SENDING SMS TO CONTACT NUMBER";
-    var links = 'sms://' + phonedisplay + "&body=SOS! \n\n Latitude: " + position.coords.latitude + "Longitude: " + position.coords.longitude
+    var links = 'sms://' + phonedisplay + "&body=SOS! \n\n Latitude:"
     document.getElementById("linkout").innerHTML = links
     window.open(links, "_self");
       throw new Error("TERMINATING SCRIPT");
