@@ -164,6 +164,7 @@ function sendsos() {
     document.getElementById("connstat").innerHTML = "SENDING SMS TO CONTACT NUMBER";
     var links = 'sms://' + phonedisplay + "&body=test"
     document.getElementById("linkout").innerHTML = links
+    window.open(links, "_self");
     throw new Error("TERMINATING SCRIPT");
 };
 	
