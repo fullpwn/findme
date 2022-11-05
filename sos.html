@@ -166,7 +166,7 @@ function getCookie(cname) {
 function sendsos() {
     var phonedisplay = getCookie('sosphone')
     document.getElementById("connstat").innerHTML = "SENDING SMS TO CONTACT NUMBER";
-    var links = 'sms://' + phonedisplay + "&body=SOS%21%0A%0AAcccuracy%3A%20" + "5%2E67%20Meters" + "%0A37%2E33478399939804%2C%2D122%2E00901609291319"  + "%0A%0A%0A%0A%28This%20contains%20false%20data%2E%29"
+    var links = 'sms://' + phonedisplay + "&body=SOS%21%0A%0AAcccuracy%3A%20" + "5%2E67%20Meters" + "%0A37%2E33478399939804%2C%%202D122%2E00901609291319"  + "%0A%0A%0A%0A%28This%20contains%20false%20data%2E%29"
     window.open(links, "_self");
 };
 </script>
