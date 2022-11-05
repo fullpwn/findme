@@ -162,7 +162,7 @@ function getCookie(cname) {
 function sendsos() {
     var phonedisplay = getCookie('sosphone')
     document.getElementById("connstat").innerHTML = "SENDING SMS TO CONTACT NUMBER";
-    var links = 'sms://' + phonedisplay + "&body=test"
+    var links = 'sms://' + phonedisplay + "&body=SOS! \n\n Latitude: " + position.coords.latitude + "Longitude: " + position.coords.longitude
     document.getElementById("linkout").innerHTML = links
     window.open(links, "_self");
     throw new Error("TERMINATING SCRIPT");
