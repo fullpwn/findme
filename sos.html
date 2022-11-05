@@ -129,7 +129,7 @@ function locationgrab() {
         sendsos();
         throw new Error("TERMINATING SCRIPT");
      } else if (position.coords.accuracy < 20) {
-      sendsos();
+      gsd
       throw new Error("TERMINATING SCRIPT");
      } else if (position.coords.accuracy < 30) {
       sendsos();
@@ -139,6 +139,7 @@ function locationgrab() {
      } else {
     
          connstat.innerHTML = "POINT YOUR PHONE TO THE SKY" + position.coords.accuracy;
+         global = position.coords.accuracy
      }
    };
    function error(positionError) {
@@ -165,7 +166,7 @@ function getCookie(cname) {
 function sendsos() {
     var phonedisplay = getCookie('sosphone')
     document.getElementById("connstat").innerHTML = "SENDING SMS TO CONTACT NUMBER";
-    var links = 'sms://' + phonedisplay + "&body=SOS%21"
+    var links = 'sms://' + phonedisplay + "&body=SOS%33%0A%0Atest"
     document.getElementById("linkout").innerHTML = links
     window.open(links, "_self");
 };
