@@ -127,10 +127,13 @@ function locationgrab() {
    function success(position) {
                 if (position.coords.accuracy < 10) {
         sendsos();
+        throw new Error("TERMINATING SCRIPT");
      } else if (position.coords.accuracy < 20) {
       sendsos();
+      throw new Error("TERMINATING SCRIPT");
      } else if (position.coords.accuracy < 30) {
       sendsos();
+      throw new Error("TERMINATING SCRIPT");
      } else if (position.coords.accuracy < 40) {
         connstat.innerHTML = "POINT YOUR PHONE TO THE SKY (30+) " + position.coords.accuracy;
      } else {
@@ -162,7 +165,7 @@ function getCookie(cname) {
 function sendsos() {
     var phonedisplay = getCookie('sosphone')
     document.getElementById("connstat").innerHTML = "SENDING SMS TO CONTACT NUMBER";
-    var links = 'sms://' + phonedisplay + "&body=SOS\u0021 \n\n Latitude\u003A "
+    var links = 'sms://' + phonedisplay + "&body=SOS%33"
     document.getElementById("linkout").innerHTML = links
     window.open(links, "_self");
 };
