@@ -105,9 +105,53 @@ input[type="submit"] {
   border: none;
   padding: 10px 20px;
 }
+
+
+.circle{
+   z-index: -999;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  position: absolute;
+  left: 50%;
+  margin-left: -25px;
+  top: 0%;
+  margin-top: -25px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  animation: radar 4s infinite;
+  -webkit-animation: radar 4s infinite;
+  -webkit-transition: all ease-in-out;
+  transition: all ease-in;
+}
+
+@keyframes radar {
+  1% {
+    width: 51px;
+    height: 51px;
+    margin-left: -25.5px;
+    margin-top: -25.5px;
+    border-color: #bbb;
+  }
+  50% {
+    transition: ease-out
+  }
+  100% {
+    width: 800px;
+    height: 800px;
+    margin-left: -400px;
+    margin-top: -400px;
+    
+    
+  }
+}
    </style> 
    </head> 
    <body onload="checkRegistration();"> 
+      <div class="content">
+         <div class="circle">
+         </div>
+       </div>
    <span id=g-unsupported class="api-support hidden">API not supported</span> 
    <h1>Find Me</h1> 
    <center><h3 id="conn-stat">Not Connected.</h3></center>
