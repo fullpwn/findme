@@ -156,7 +156,7 @@ input[type="submit"] {
        </div>
    <span id=g-unsupported class="api-support hidden">API not supported</span> 
    <h1>Find Me</h1> 
-   <center><progress id="strength" value="0" max="100"></progress></center>
+   <center><progress id="strength" value="0" max="50"></progress></center>
 
    <p class="celltext" id="cellname">Not Active</p>
    <a class="settingsmenu" href="/settings">Menu</a>
@@ -242,10 +242,10 @@ const signalbar = document.getElementsByTagName("path")[0];
      
          document.getElementById('timestamp').innerHTML = (new Date(position.timestamp)).toString();
          
-         if (position.coords.accuracy > 100) {
+         if (position.coords.accuracy > 50) {
             sprog.value = 0
          } else {
-            sprog.value = getDifference(position.coords.accuracy, 100)
+            sprog.value = getDifference(position.coords.accuracy, 50)
          }
          
                    if (position.coords.accuracy < 10) {
@@ -274,6 +274,7 @@ signalbar.outerHTML = "<path d=\"M24.1 26.5q-.65 0-1.075-.425Q22.6 25.65 22.6 25
 const box = document.getElementById('g-information');
   			  box.style.display = 'none';
               gpstext.innerHTML = "No Service"
+              sprog.value = 0
       }
 
       document.getElementById('button-watch-position').addEventListener('click', function() {
