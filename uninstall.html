@@ -89,7 +89,7 @@ function uninstall() {
     for (let name of names)
         caches.delete(name);
 });
-document.getElementById("status").innerHTML = "Uninstalled.";
+document.getElementById("status").innerHTML = "Please relaunch to finish updating.";
 }
 navigator.serviceWorker.getRegistrations().then( function(registrations) { for(let registration of registrations) { registration.unregister().then(uninstall())  } }); 
 
@@ -100,7 +100,7 @@ navigator.serviceWorker.getRegistrations().then( function(registrations) { for(l
 </script>
 </head>
 
-<h1>Uninstall</h1>
+<h1>Update</h1>
 	<center><h3 id="status">Uninstalling..</h3></center>
 
 </html>
