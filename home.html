@@ -13,6 +13,7 @@
       margin: 2em auto;
       padding: 0 0.5em;
       font-size: 20px;
+      
    }
 
    h1
@@ -105,8 +106,6 @@ input[type="submit"] {
   border: none;
   padding: 10px 20px;
 }
-
-
 .circle{
    z-index: -999;
   width: 50px;
@@ -157,14 +156,14 @@ input[type="submit"] {
        </div>
    <span id=g-unsupported class="api-support hidden">API not supported</span> 
    <h1>Find Me</h1> 
-   <center><h3 id="conn-stat">Not Connected.</h3></center>
+   <center><progress id="strength" value="0" max="100"></progress></center>
 
    <p class="celltext" id="cellname">Not Active</p>
    <a class="settingsmenu" href="/settings">Menu</a>
    <a class="sos" onclick="location.replace('/sos')">SOS</a>
 <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48" height="24" width="24" class="cell"><path d="M29.5 46.35q-.6.05-1.05-.375Q28 45.55 28 44.9q0-.6.425-1.025.425-.425 1.075-.525 5.3-.55 9.1-4.35t4.35-9.1q.1-.65.525-1.075.425-.425 1.025-.425.65 0 1.075.45.425.45.375 1.05-.55 6.6-5.2 11.25t-11.25 5.2Zm.05-6.05q-.6.1-1.075-.35Q28 39.5 28 38.85q0-.55.425-1.025.425-.475 1.025-.575 2.7-.55 4.775-2.625t2.625-4.775q.1-.6.55-1.025.45-.425 1.05-.425.65 0 1.1.475.45.475.35 1.075-.55 3.9-3.5 6.85-2.95 2.95-6.85 3.5ZM11.1 45.55q-.6 0-1.175-.225-.575-.225-.975-.625l-8.5-8.5q-.4-.4-.625-.975Q-.4 34.65-.4 34.05q0-.6.225-1.15.225-.55.625-.95L8 24.4q.85-.85 2.125-.85t2.125.85l3.2 3.2 1.85-1.85-3.2-3.2q-.85-.85-.85-2.1t.85-2.1l3.75-3.75q.85-.85 2.125-.85t2.125.85l3.2 3.2 1.85-1.85-3.2-3.2q-.85-.85-.85-2.125t.85-2.125L31.5.95q.45-.45 1-.675.55-.225 1.15-.225.6 0 1.15.2.55.2 1 .65l8.5 8.5q.45.45.65 1t.2 1.15q0 .6-.25 1.175-.25.575-.65.975l-7.55 7.55q-1.15 1.15-2.125 1.15-.975 0-2.125-1.15l-3.2-3.2-1.85 1.85 3.2 3.2q.85.85.825 2.125-.025 1.275-.875 2.125l-3.7 3.7q-.85.85-2.125.85t-2.125-.85l-3.2-3.2-1.85 1.85 3.2 3.2q.85.85.85 2.125t-.85 2.125L13.2 44.7q-.4.4-.95.625-.55.225-1.15.225Zm0-2.95 2.7-2.7-8.5-8.5-2.7 2.7Zm4.85-4.85 2.7-2.7-8.5-8.5-2.7 2.7Zm8.8-8.8 3.7-3.7-8.5-8.5-3.7 3.7Zm9.85-9.85 2.7-2.7-8.5-8.5-2.7 2.7Zm4.85-4.85 2.7-2.7-8.5-8.5-2.7 2.7Zm-17.1 8.6Z"/></svg>
    <div class=buttons-wrapper> 
-	   <center><button id=button-watch-position type="submit" hidden>Connect</button></center>
+	   <center><button id=button-watch-position type="submit" >Connect</button></center>
   </div>
  <div id=g-information style="display: none;"> <h2>Information</h2>
         <ul> 
@@ -216,6 +215,11 @@ if (!(window.navigator && window.navigator.geolocation)) {
          timeout: 5 * 1000, // 5 seconds
          maximumAge: 15 * 1000 // 15 seconds
       };
+function getDifference(a, b) {
+  return Math.abs(a - b);
+}
+
+var sprog = document.getElementById('strength');
 
       function success(position) {
 const signalbar = document.getElementsByTagName("path")[0];
@@ -238,26 +242,25 @@ const signalbar = document.getElementsByTagName("path")[0];
      
          document.getElementById('timestamp').innerHTML = (new Date(position.timestamp)).toString();
          
-         
+         if (position.coords.accuracy > 100) {
+            sprog.value = 0
+         } else {
+            sprog.value = getDifference(position.coords.accuracy, 100)
+         }
          
                    if (position.coords.accuracy < 10) {
            signalbar.outerHTML = "<path d=\"M7.65 44q-1 0-1.375-.925T6.6 41.45l34.9-34.9q.7-.7 1.625-.325.925.375.925 1.375v34.9q0 .65-.425 1.075Q43.2 44 42.55 44Z\"/>";
-           connstat.innerHTML = "Great Connection."
            gpstext.innerHTML = "GPS"
         } else if (position.coords.accuracy < 20) {
            signalbar.outerHTML = "<path d=\"M30.3 41h10.75V11.2L30.3 21.95ZM7.65 44q-1 0-1.375-.925T6.6 41.45l34.9-34.9q.7-.7 1.625-.325.925.375.925 1.375v34.9q0 .65-.425 1.075Q43.2 44 42.55 44Z\"/>";
-           connstat.innerHTML = "Good Connection."
         } else if (position.coords.accuracy < 30) {
            signalbar.outerHTML = "<path d=\"M26.3 41h14.75V11.2L26.3 25.95ZM7.65 44q-1 0-1.375-.925T6.6 41.45l34.9-34.9q.7-.7 1.625-.325.925.375.925 1.375v34.9q0 .65-.425 1.075Q43.2 44 42.55 44Z\"/>";
            gpstext.innerHTML = "GPS"
-           connstat.innerHTML = "Moderate Connection."
         } else if (position.coords.accuracy < 40) {
            signalbar.outerHTML = "<path d=\"M20.3 41h20.75V11.2L20.3 31.95ZM7.65 44q-1 0-1.375-.925T6.6 41.45l34.9-34.9q.7-.7 1.625-.325.925.375.925 1.375v34.9q0 .65-.425 1.075Q43.2 44 42.55 44Z\"/>";
-           connstat.innerHTML = "Poor Connection.";
            gpstext.innerHTML = "GPS"
         } else {
            signalbar.outerHTML = "<path d=\"M22.9 43.95q-3.95-.2-7.4-1.85-3.45-1.65-6-4.325Q6.95 35.1 5.475 31.55 4 28 4 24q0-4.15 1.575-7.8Q7.15 12.55 9.85 9.85q2.7-2.7 6.35-4.275Q19.85 4 24 4q7.45 0 12.95 4.7 5.5 4.7 6.75 11.8h-3.05q-.85-4.2-3.55-7.5-2.7-3.3-6.75-4.95v.9q0 1.75-1.2 3.05-1.2 1.3-2.95 1.3h-4.35v4.35q0 .85-.675 1.4-.675.55-1.525.55H15.5V24H21v6.25h-3.35l-10.2-10.2q-.25 1-.35 1.975Q7 23 7 24q0 6.75 4.55 11.65t11.35 5.3Zm18.55-2.4-5.65-5.6q-1.05.75-2.275 1.15-1.225.4-2.525.4-3.55 0-6.025-2.475Q22.5 32.55 22.5 29q0-3.55 2.475-6.025Q27.45 20.5 31 20.5q3.55 0 6.025 2.475Q39.5 25.45 39.5 29q0 1.3-.425 2.525-.425 1.225-1.125 2.325l5.6 5.6q.45.45.475 1.05.025.6-.425 1.1-.45.45-1.075.425Q41.9 42 41.45 41.55ZM31 34.5q2.3 0 3.9-1.6t1.6-3.9q0-2.3-1.6-3.9T31 23.5q-2.3 0-3.9 1.6T25.5 29q0 2.3 1.6 3.9t3.9 1.6Z\"/>";
-			connstat.innerHTML = "Make sure you have a clear view of the sky.";
               const box = document.getElementById('g-information');
   			  box.style.display = 'none';
               gpstext.innerHTML = "Searching.."
@@ -268,7 +271,6 @@ const signalbar = document.getElementsByTagName("path")[0];
 	  const connstat = document.getElementById('conn-stat')
       const gpstext = document.getElementById('cellname');
 signalbar.outerHTML = "<path d=\"M24.1 26.5q-.65 0-1.075-.425Q22.6 25.65 22.6 25v-9.45q0-.65.425-1.075.425-.425 1.075-.425.65 0 1.075.425.425.425.425 1.075V25q0 .65-.425 1.075-.425.425-1.075.425Zm-.1 7.4q-.6 0-1.05-.45-.45-.45-.45-1.05 0-.6.45-1.05.45-.45 1.05-.45.6 0 1.05.45.45.45.45 1.05 0 .6-.45 1.05-.45.45-1.05.45Zm8.2 4.9q-.75.4-1.35-.025-.6-.425-.6-1.325 0-.4.275-.825.275-.425.675-.625 3.4-1.65 5.4-4.95 2-3.3 2-7.2 0-2.7-.9-5.025t-2.95-4.175l-1.5-1.35v4.35q0 .65-.425 1.075-.425.425-1.075.425-.65 0-1.075-.425-.425-.425-.425-1.075V9.5q0-.65.425-1.075Q31.1 8 31.75 8h8.15q.65 0 1.075.425.425.425.425 1.075 0 .65-.425 1.075Q40.55 11 39.9 11h-4.7l.75.7q3.3 2.65 4.475 5.9 1.175 3.25 1.175 6.25 0 4.85-2.575 8.875T32.2 38.8ZM8.1 40q-.65 0-1.075-.425Q6.6 39.15 6.6 38.5q0-.65.425-1.075Q7.45 37 8.1 37h4.65l-.7-.7q-3.3-2.6-4.475-5.875Q6.4 27.15 6.4 24.2q0-4.9 2.575-8.9t6.875-6.05q.75-.35 1.325.025t.575 1.275q0 .4-.275.825-.275.425-.675.625-3.4 1.7-5.4 5-2 3.3-2 7.2 0 2.6.875 4.925.875 2.325 2.975 4.225l1.5 1.35v-4.35q0-.65.425-1.075.425-.425 1.075-.425.65 0 1.075.425.425.425.425 1.075v8.15q0 .65-.425 1.075Q16.9 40 16.25 40Z\"/>";
-connstat.innerHTML = "Could not contact GPS.";
 const box = document.getElementById('g-information');
   			  box.style.display = 'none';
               gpstext.innerHTML = "No Service"
