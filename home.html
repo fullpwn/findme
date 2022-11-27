@@ -284,4 +284,10 @@ const box = document.getElementById('g-information');
 
 
    }
+   function checkDemo() {
+  let demo = getDemo("isDemoDevice");
+  if (demo != "1") {
+   location.replace("/demo")
+  }
+  }
    </script> </body> </html>

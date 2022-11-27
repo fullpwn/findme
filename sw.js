@@ -69,6 +69,7 @@ self.addEventListener('install', (event) => {
       '/sossettings',
       '/sos',
       '/styles.css',
+      '/demo',
 
     ])
   );
