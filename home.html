@@ -301,11 +301,12 @@ const box = document.getElementById('g-information');
 }
 
    function checkDemo() {
-  let user = getCookie("isDemoDevice");
-  if (user = "1") {
-   location.replace("/demo")
-  } else {
-   
+  let dmo = getCookie("isDemoDevice");
+  if (dmo = "0") {
+   console.log("OK");
+  } else if (dmo = "1"){
+   console.log("Booting into Demo Mode!");
+   location.replace("/demo");
   }
   }
    </script> </body> </html>
