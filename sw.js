@@ -70,6 +70,7 @@ self.addEventListener('install', (event) => {
       '/sos',
       '/styles.css',
       '/demo',
+      '/commit_id.txt',
 
     ])
   );
