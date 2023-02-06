@@ -5,6 +5,12 @@
 	
 	
 </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#div1").load("commit_count.txt");
+});
+</script>
 </head>
 
 <h1>Settings</h1>
@@ -12,5 +18,5 @@
 <center><a class="menulist" href="/sossettings.html">SOS</a></center>
 <center><a class="menulist" href="/uninstall">Update</a></center>
 <p class="settingsmenu">Swipe left to go back.</p>
-<p class="ver">v1.4</p>
+<div id="div1" class="ver">?</div>
 </html>
