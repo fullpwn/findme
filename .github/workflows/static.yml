@@ -36,7 +36,7 @@ jobs:
         id: vars
         run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
       - name: Check outputs
-        run: echo ${{ steps.vars.outputs.sha_short }} > commit_count.txt
+        run: echo ${{ steps.vars.outputs.sha_short }} > commit_id.txt
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
