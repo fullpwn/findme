@@ -130,7 +130,13 @@ function checkCookie() {
 	
 	
 </script>
+	<script>
+$(document).ready(function(){
+    $("#div1").load("commit_id.txt");
+});
+</script>
 </head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <center><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://web.resource.org/cc/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" class="hello" version="1.1" baseProfile="full" width="240px" height="180px" viewBox="0 0 480 360" preserveAspectRatio="xMidYMid meet" id="svg_document" style="zoom: 1;"><path stroke="black" stroke-linejoin="round" id="path1" stroke-width="15.75px" d="M23,213 C54.5,213 165.800003,98.900002 118.199997,98.200005 C70.599998,97.5 75.5,238.899994 75.5,238.899994 C75.5,238.899994 77.599998,172.399994 116.099998,172.399994 C154.599991,172.399994 109.799995,237.5 143.399994,239.600006 C177,241.699997 225.300003,175.899994 190.300003,174.5 C155.300003,173.100006 156,236.100006 202.899994,238.199997 C249.800003,240.300003 303.699982,105.900002 262.399994,103.099998 C221.099991,100.300003 228.800003,234.699997 270.799988,237.5 C312.799988,240.300003 373.699982,104.5 331,102.400002 C288.299988,100.300003 293.199982,236.800003 337.299988,237.5 C365.299988,236.100006 356.199982,171.699997 392.600006,173.100006 C412.899994,174.5 421.299988,189.899994 420.600006,189.199997 C419.899994,188.5 426.899994,236.800003 389.799988,236.800003 C352.699982,236.800003 356.899994,171.699997 392.600006,173.100006 C424.799988,175.899994 420.600006,203.899994 421.299988,196.199997 C421.299988,196.899994 444.399994,189.199997 447.899994,173.800003" fill="none" stroke-linecap="round" transform=""></path></svg></center>
 	<center><h2>Welcome!</h2>
@@ -138,6 +144,7 @@ function checkCookie() {
    <p>Please <span onclick="setCookie('isDemoDevice', '1', 30); location.replace('/demo')">enter</span> a phone number of a friend or a family member to contact in an emergency.</p>
    <input type="tel" id="phone" name="phone" placeholder="+61491570006" pattern="^\({0,1}((0|\+61)(2|4|3|7|8)){0,1}\){0,1}( |-){0,1}[0-9]{2}( |-){0,1}[0-9]{2}( |-){0,1}[0-9]{1}( |-){0,1}[0-9]{3}$" required>
     <button onClick="checkCookie(); location.replace('/home');">Finish</button>
+		<i><div id="div1"></div><i>
    </center>
 <body>
 </body>
